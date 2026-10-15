@@ -20,7 +20,12 @@ export default function App() {
     setPost(data): Lưu dữ liệu bài viết vừa lấy về vào state post. Việc này báo cho React biết cần vẽ lại (re-render) giao diện để hiển thị tiêu đề và nội dung mới.
     setLoading(false): Vì API đã trả về kết quả xong, ta chuyển loading về false để ẩn dòng chữ/icon "Đang tải dữ liệu..." trên màn hình.
 
-Luồng hoạt động trong thực tếLần đầu mở ứng dụng (postId = 1):Component xuất hiện $\rightarrow$ useEffect chạy.Gửi request lấy bài viết #1.Lấy xong dữ liệu $\rightarrow$ setPost cập nhật nội dung bài #1 $\rightarrow$ setLoading(false) ẩn thông báo tải.Người dùng bấm nút "Bài viết tiếp theo" (postId tăng lên 2):Biến postId thay đổi từ 1 thành 2.useEffect phát hiện postId trong mảng [postId] đã thay đổi $\rightarrow$ Tự động kích hoạt lại code gọi API bài viết #2.Lấy xong dữ liệu bài #2 $\rightarrow$ Cập nhật giao diện mới.
+Luồng hoạt động trong thực tếLần đầu mở ứng dụng (postId = 1):Component xuất hiện
+-> useEffect chạy.Gửi request lấy bài viết #1.Lấy xong dữ liệu
+-> setPost cập nhật nội dung bài #1 -> setLoading(false) ẩn thông báo tải.
+Người dùng bấm nút "Bài viết tiếp theo" (postId tăng lên 2):Biến postId thay đổi từ 1 thành 2.
+useEffect phát hiện postId trong mảng [postId] đã thay đổi -> Tự động kích hoạt lại code gọi API bài viết #2.
+Lấy xong dữ liệu bài #2 -> Cập nhật giao diện mới.
     */
     useEffect(() => {
         // Xoá setLoading(true) đồng bộ ở đây

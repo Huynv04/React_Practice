@@ -17,6 +17,20 @@ export default function Render_List_Condition() {
     ];
 
     // Lọc danh sách công việc
+    /*
+    showOnlyCompleted: Là biến trạng thái (boolean: true hoặc false).
+    ? : (Toán tử ba ngôi - Điều_kiện ? Thực_thi_khi_True : Thực_thi_khi_False):
+   -  Trường hợp true (Khi chọn "Chỉ hiện việc đã xong"):Chạy nhánh tasks.filter((t) => t.completed)
+    Hàm .filter() duyệt qua từng công việc t trong mảng tasks.
+    Chỉ giữ lại các phần tử có thuộc tính completed === true.
+
+   - Trường hợp false (Khi chọn "Hiện tất cả"):
+    Chạy nhánh tasks
+    Trả về nguyên vẹn mảng tasks gốc (bao gồm cả việc đã xong lẫn chưa xong).
+    displayedTasks: Hằng số lưu trữ mảng kết quả cuối cùng. Bạn sẽ dùng mảng displayedTasks này để .map() ra giao diện thay vì dùng mảng tasks gốc.
+    */
+
+    //nếu biến showOnlyCompleted là true thì lọc ra các task đã hoàn thành, ngược lại thì hiển thị tất cả các task.
     const displayedTasks = showOnlyCompleted
         ? tasks.filter((t) => t.completed)
         : tasks;
@@ -43,7 +57,9 @@ export default function Render_List_Condition() {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '8px',
+                            //task đã hoàn thành(true) thì màu chữ xám, chưa hoàn thành(false) thì màu xanh lá
                             textDecoration: task.completed ? 'line-through' : 'none',
+                            //task đã hoàn thành(true) thì màu chữ xám, chưa hoàn thành(false) thì màu xanh lá
                             color: task.completed ? '#94a3b8' : '#0f1',
                         }}
                     >
